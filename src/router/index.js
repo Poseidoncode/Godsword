@@ -1,6 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
-import Home from "@/App.vue";
 // import Dashboard from "@/views/dashBoard.vue";
 const routes = [
   {
@@ -17,10 +16,16 @@ const routes = [
   {
     path: "/coupon",
     name: "coupon",
-    meta: {
-    },
+    meta: {},
     // redirect: "/home",
     component: () => import("@/views/coupon.vue"),
+  },
+  {
+    path: "/landing",
+    name: "landing",
+    meta: {},
+    // redirect: "/home",
+    component: () => import("@/views/landing.vue"),
   },
   // {
   //   path: "/:pathMatch(.*)*",
