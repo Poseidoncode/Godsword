@@ -55,6 +55,8 @@ export default defineConfig(({ mode }) => {
       },
       host: true,
     },
-    base: "/",
+    // base: "/",
+
+    base:"/Godsword/",
   };
 });
