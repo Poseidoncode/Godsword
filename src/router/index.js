@@ -10,8 +10,9 @@ const routes = [
       needNav: true,
       needFooter: true,
     },
-    // redirect: "/home",
-    component: () => import("@/views/HomePage.vue"),
+    redirect: "/testone",
+    // component: () => import("@/views/HomePage.vue"),
+    component: () => import("@/views/testone"),
   },
   {
     path: "/coupon",
