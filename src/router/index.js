@@ -12,7 +12,8 @@ const routes = [
     },
     redirect: "/testone",
     // component: () => import("@/views/HomePage.vue"),
-    component: () => import("@/views/testone"),
+    component: () => import("@/views/testone.vue"),
+    // component: () => import("@/views/testone"),
   },
   {
     path: "/coupon",
