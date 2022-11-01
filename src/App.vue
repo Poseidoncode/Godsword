@@ -30,6 +30,7 @@ export default {
 .all-content {
   // background: url("/public/assets/brandfinalt.png") no-repeat calc(100% - 19px);
   // background: transparent url("/public/assets/bgrough.jpg") repeat 0 0;
+  padding: 200px;
   overflow: hidden;
   // position: relative;
   // width: 99%;

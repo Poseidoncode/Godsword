@@ -1,10 +1,11 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
 import { minifyHtml, injectHtml } from "vite-plugin-html";
-import path from 'path'
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import path from "path";
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import ViteRadar from "vite-plugin-radar";
 
 export default defineConfig(({ mode }) => {
   require("dotenv").config({ path: "./.env" });
@@ -22,6 +23,13 @@ export default defineConfig(({ mode }) => {
     Components({
       resolvers: [ElementPlusResolver()],
     }),
+    ViteRadar({
+      // Google Analytics tag injection
+      analytics: {
+        id: 'G-P2XCCBR8NH',
+      },
+    })
+
   ];
 
   return {
@@ -40,7 +48,7 @@ export default defineConfig(({ mode }) => {
       open: true,
       proxy: {
         "^/rest": {
-          target: process.env.VUE_APP_PROXY ,
+          target: process.env.VUE_APP_PROXY,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/rest/, ""),
         },
@@ -48,5 +56,5 @@ export default defineConfig(({ mode }) => {
       host: true,
     },
     base: "./",
-  }
-})
+  };
+});
