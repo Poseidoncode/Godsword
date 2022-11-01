@@ -10,7 +10,7 @@ const routes = [
       needNav: true,
       needFooter: true,
     },
-    redirect: "/testone",
+    // redirect: "/testone",
     // component: () => import("@/views/HomePage.vue"),
     component: () => import("@/views/testone.vue"),
     // component: () => import("@/views/testone"),
