@@ -1,5 +1,5 @@
 <template>
-  <div>Page1</div>
+  <div>Page1-123</div>
 
   <div @click="$router.push('/testone')">test1</div>
   <div @click="$router.push('/testtwo')">test2</div>
