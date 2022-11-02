@@ -11,8 +11,8 @@ const routes = [
       needFooter: true,
     },
     // redirect: "/testone",
-    // component: () => import("@/views/HomePage.vue"),
-    component: () => import("@/views/testone.vue"),
+    component: () => import("@/views/HomePage.vue"),
+    // component: () => import("@/views/testone.vue"),
     // component: () => import("@/views/testone"),
   },
   {
