@@ -55,8 +55,9 @@ export default defineConfig(({ mode }) => {
       },
       host: true,
     },
-    base: "/",
+    // base: "/",
 
     // base:"/Godsword/",
+    base: process.env.NODE_ENV === 'production' ? '/Godsword/' : './',
   };
 });
