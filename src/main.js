@@ -19,8 +19,14 @@ import "./styles/index.scss";
 import { createPinia } from 'pinia'
 
 const app = createApp(App).use(router).use(ElementPlus).use(VueGtag, {
-    appName: 'My application',
+    // appName: 'My application',
     pageTrackerScreenviewEnabled: true,
+    pageTrackerTemplate(to) {
+      return {
+        page_title: to.name,
+        page_path: to.path
+      }
+    },
     config: { id: "G-P2XCCBR8NH" }
   }, router).use(createPinia());
 
