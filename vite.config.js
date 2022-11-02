@@ -5,11 +5,11 @@ import path from "path";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
-import ViteRadar from "vite-plugin-radar";
-import pluginRewriteAll from 'vite-plugin-rewrite-all';
+// import ViteRadar from "vite-plugin-radar";
+// import pluginRewriteAll from 'vite-plugin-rewrite-all';
 
 export default defineConfig(({ mode }) => {
-  require("dotenv").config({ path: "./.env" });
+  // require("dotenv").config({ path: "./.env" });
   const plugins = [
     vue(),
     minifyHtml(),
@@ -24,13 +24,13 @@ export default defineConfig(({ mode }) => {
     Components({
       resolvers: [ElementPlusResolver()],
     }),
-    ViteRadar({
-      // Google Analytics tag injection
-      analytics: {
-        id: 'G-P2XCCBR8NH',
-      },
-    }),
-    pluginRewriteAll()
+    // ViteRadar({
+    //   // Google Analytics tag injection
+    //   analytics: {
+    //     id: 'G-P2XCCBR8NH',
+    //   },
+    // }),
+    // pluginRewriteAll()
   ];
 
   return {
@@ -57,8 +57,8 @@ export default defineConfig(({ mode }) => {
       host: true,
     },
     // base: "/",
-
     // base:"/Godsword/",
-    base: process.env.NODE_ENV === 'production' ? '/Godsword/' : './',
+    // base: process.env.NODE_ENV === 'production' ? '/Godsword/' : './',
+    base: "/",
   };
 });

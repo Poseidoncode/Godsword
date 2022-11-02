@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import VueGtag from "vue-gtag";
 
 import router from "./router";
 
@@ -17,7 +18,11 @@ import "./styles/index.scss";
 //pinia
 import { createPinia } from 'pinia'
 
-const app = createApp(App).use(router).use(ElementPlus).use(createPinia());
+const app = createApp(App).use(router).use(ElementPlus).use(VueGtag, {
+    appName: 'My application',
+    pageTrackerScreenviewEnabled: true,
+    config: { id: "G-P2XCCBR8NH" }
+  }, router).use(createPinia());
 
 
 app.provide("emitter", emitter);

@@ -72,9 +72,9 @@ const routes = [
 ];
 
 const router = createRouter({
-  // history: createWebHashHistory(),
+  history: createWebHashHistory(),
   // history: createWebHistory(),
-  history: createWebHistory('/Godsword/'),
+  // history: createWebHistory('/Godsword/'),
   routes,
 });
 
