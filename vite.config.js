@@ -6,6 +6,7 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import ViteRadar from "vite-plugin-radar";
+import pluginRewriteAll from 'vite-plugin-rewrite-all';
 
 export default defineConfig(({ mode }) => {
   require("dotenv").config({ path: "./.env" });
@@ -28,8 +29,8 @@ export default defineConfig(({ mode }) => {
       analytics: {
         id: 'G-P2XCCBR8NH',
       },
-    })
-
+    }),
+    pluginRewriteAll()
   ];
 
   return {
