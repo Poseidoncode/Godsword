@@ -8,6 +8,9 @@
   <div class="cursor-pointer" @click="$router.push('/testFive')">test5</div>
 
   <button @click="setSpecificEvent">setSpecificEvent</button>
+  - - -
+  <div>-----</div>
+  <el-button type="primary" @click="completeOrder">Primary</el-button>
 </template>
 
 <script setup>
@@ -26,6 +29,14 @@ const setSpecificEvent = () => {
   event("aaa", {
     event_category: "bbb",
     event_label: "ccc",
+  });
+};
+
+const completeOrder = () => {
+  console.log("scompleteOrder ");
+  event("完成訂單", {
+    event_category: "編輯者",
+    event_label: "作家",
   });
 };
 </script>

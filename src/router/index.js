@@ -1,4 +1,8 @@
-import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
+import {
+  createRouter,
+  createWebHashHistory,
+  createWebHistory,
+} from "vue-router";
 
 // import Dashboard from "@/views/dashBoard.vue";
 const routes = [
@@ -18,49 +22,51 @@ const routes = [
   {
     path: "/coupon",
     name: "優惠券",
-    meta: {},
+    meta: {pageData:'優惠券-meta',},
     // redirect: "/home",
     component: () => import("@/views/coupon.vue"),
   },
   {
     path: "/landing",
     name: "landing",
-    meta: {},
+    meta: { pageData: "landing-meta" },
     // redirect: "/home",
     component: () => import("@/views/landing.vue"),
   },
   {
     path: "/testone",
     name: "測試一頁面",
-    meta: {},
+    meta: {
+      pageData: "測試一頁面-meta",
+    },
     // redirect: "/home",
     component: () => import("@/views/testone.vue"),
   },
   {
     path: "/testtwo",
     name: "測試二頁面",
-    meta: {},
+    meta: {pageData:'測試二頁面-meta',},
     // redirect: "/home",
     component: () => import("@/views/testtwo.vue"),
   },
   {
     path: "/testthree",
     name: "測試三頁面",
-    meta: {},
+    meta: {pageData:'測試三頁面-meta',},
     // redirect: "/home",
     component: () => import("@/views/testthree.vue"),
   },
   {
     path: "/testFour",
     name: "測試四頁面",
-    meta: {},
+    meta: {pageData:'測試四頁面-meta',},
     // redirect: "/home",
     component: () => import("@/views/testFour.vue"),
   },
   {
     path: "/testFive",
     name: "測試五頁面",
-    meta: {},
+    meta: {pageData:'測試五頁面-meta',},
     // redirect: "/home",
     component: () => import("@/views/testFive.vue"),
   },
@@ -78,21 +84,23 @@ const router = createRouter({
   routes,
 });
 
-// router.beforeEach((to, from, next) => {
-//   if (!store.getters.g_isLogin && to.name !== "Login") {
-//     const _authData = sessionStorage.getItem("authData")
-//       ? JSON.parse(sessionStorage.getItem("authData"))
-//       : null;
+router.beforeEach((to, from, next) => {
+  console.log("to", to);
+  next();
+  // if (!store.getters.g_isLogin && to.name !== "Login") {
+  //   const _authData = sessionStorage.getItem("authData")
+  //     ? JSON.parse(sessionStorage.getItem("authData"))
+  //     : null;
 
-//     if (!!_authData?.token) {
-//       store.commit("m_setUserData", _authData);
-//       next();
-//     } else {
-//       next({ name: "Login" });
-//     }
-//   } else {
-//     next();
-//   }
-// });
+  //   if (!!_authData?.token) {
+  //     store.commit("m_setUserData", _authData);
+  //     next();
+  //   } else {
+  //     next({ name: "Login" });
+  //   }
+  // } else {
+  //   next();
+  // }
+});
 
 export default router;

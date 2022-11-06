@@ -23,7 +23,8 @@ const app = createApp(App).use(router).use(ElementPlus).use(VueGtag, {
     pageTrackerScreenviewEnabled: true,
     pageTrackerTemplate(to) {
       return {
-        page_title: to.name,
+        page_title:!!to.meta?.pageData ?to.meta?.pageData:to.name ,
+        // page_title: to.name,
         page_path: to.path
       }
     },
