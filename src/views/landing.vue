@@ -34,6 +34,9 @@
 <script setup>
 import { ref, onBeforeMount, onMounted, onUpdated } from "vue";
 import { bibleWord } from "@/usualuse/consts.js";
+import { useRouter, useRoute } from "vue-router";
+
+const router = useRouter();
 
 const clickWord = ref("Click Me");
 const finalChoosed = ref(null);
@@ -47,6 +50,38 @@ const startChoose = () => {
 const confirmChoose = () => {
   clearInterval(intervalID.value);
   intervalID.value = null;
+  console.log("finalChoosed.value", finalChoosed.value);
+
+  // router.push({
+  //   name: "coupon",
+  //   // query: {
+  //   //   data: "Alysa",
+  //   // },
+  //   // params: { alldata: JSON.stringify(finalChoosed.value) },
+  //   // params: { alldata: finalChoosed.value },
+  //   // params: { test: "123" },
+  //   // params: {
+  //   //   obj: { test: "123, }
+  //   // },
+
+  //   params: {
+  //     otherProp: {
+  //       a: "b",
+  //     },
+  //   },
+  // });
+  const someObject = {
+    test: "123",
+  };
+  router.push({
+    name: "coupon",
+    query: { test: "123" },
+    // params: {
+    //   // obj: { ...someObject },
+    //   blog: "555blog",
+    // },
+    params: { id: "joke.id" },
+  });
 };
 
 const myCallback = () => {
@@ -56,7 +91,7 @@ const myCallback = () => {
   const randomNum = getRandom(0, length);
   const data = myAllData[randomNum];
   clickWord.value = data.fullChapter;
-  finalChoosed = data;
+  finalChoosed.value = data;
 };
 
 const getRandom = (min, max) => {

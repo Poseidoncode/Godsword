@@ -21,10 +21,15 @@ const routes = [
   },
   {
     path: "/coupon",
-    name: "優惠券",
-    meta: {pageData:'優惠券-meta',},
+    name: "coupon",
+    // meta: {pageData:'優惠券-meta',},
     // redirect: "/home",
     component: () => import("@/views/coupon.vue"),
+    params:{},
+    props: (route) => ({
+      user: 'userData',
+      ...route.params
+    })
   },
   {
     path: "/landing",

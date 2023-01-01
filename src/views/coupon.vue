@@ -3,11 +3,20 @@
     <h1 style="text-align: center">刮刮樂</h1>
     <canvas id="canvas" width="400" height="100"></canvas>
     <div class="text">恭喜您中獎</div>
+    {{ $route }}
   </main>
 </template>
 
 <script setup>
 import { ref, onBeforeMount, onMounted, onUpdated } from "vue";
+import { useRouter, useRoute } from "vue-router";
+
+const router = useRouter();
+const route = useRoute();
+
+onMounted(() => {
+  console.log("route", route);
+});
 
 const setCanvas = () => {
   //https://juejin.cn/post/6986785259966857247
