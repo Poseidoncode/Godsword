@@ -1,4 +1,4 @@
-constisActive = [
+export const  bibleWord = [
   {
     word: "耶穌對他說：復活在我，生命也在我。信我的人雖然死了，也必復活，凡活著信我的人必永遠不死。你信這話麼？",
     chapter: "約翰福音",
@@ -111,13 +111,13 @@ constisActive = [
   },
   {
     word: "遮掩人過的，尋求人愛；屢次挑錯的，離間密友。",
-    chapter: "箴言17:9",
-    fullChapter: "箴言",
+    chapter: "箴言",
+    fullChapter: "箴言17:9",
   },
   {
     word: "主就是那靈；主的靈在那裡，那裡就得以自由。",
-    chapter: "哥林多後書3:17",
-    fullChapter: "哥林多後書",
+    chapter: "哥林多後書",
+    fullChapter: "哥林多後書3:17",
   },
   {
     word: "約在半夜，保羅和西拉禱告，唱詩讚美神，眾囚犯也側耳而聽。",

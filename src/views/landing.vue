@@ -19,12 +19,56 @@
           </div>
         </div>
       </div>
-      <a target="_blank"> Click Me </a>
+      <div target="_blank" class="btn-place" @click="startChoose">{{ clickWord }}</div>
+      <div
+        class="text-white text-center text-[24px] mt-[20px] cursor-pointer"
+        v-if="clickWord != 'Click Me'"
+        @click="confirmChoose"
+      >
+        Confirm
+      </div>
     </div>
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, onBeforeMount, onMounted, onUpdated } from "vue";
+import { bibleWord } from "@/usualuse/consts.js";
+
+const clickWord = ref("Click Me");
+const finalChoosed = ref(null);
+const intervalID = ref(null);
+
+const startChoose = () => {
+  console.log(bibleWord);
+  intervalID.value = window.setInterval(myCallback, 500);
+};
+
+const confirmChoose = () => {
+  clearInterval(intervalID.value);
+  intervalID.value = null;
+};
+
+const myCallback = () => {
+  let myAllData = [...bibleWord];
+  const length = myAllData?.length - 1;
+
+  const randomNum = getRandom(0, length);
+  const data = myAllData[randomNum];
+  clickWord.value = data.fullChapter;
+  finalChoosed = data;
+};
+
+const getRandom = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+onMounted(() => {
+  clickWord.value = "Click Me";
+  finalChoosed.value = null;
+  intervalID.value = null;
+});
+</script>
 
 <style lang="scss" scoped>
 .article {
@@ -49,7 +93,8 @@
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.05);
 }
-a {
+.btn-place {
+  cursor: pointer;
   font-family: "Poppins", sans-serif;
   display: block;
   text-align: center;
